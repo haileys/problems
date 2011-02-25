@@ -4,11 +4,11 @@
 
 int* cipher;
 
-int analyzerepetition(int symbol)
+long long analyzerepetition(int symbol)
 {
 	int* seen = (int*)calloc(201, sizeof(int));
 	int sym = symbol;
-	int steps = 0;
+	long long steps = 0;
 	do
 	{
 		steps++;
