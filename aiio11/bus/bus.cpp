@@ -71,7 +71,7 @@ int main()
 	}
 	
 	int rounds = nshortlist;
-	while(driversleft > 2)
+	while(driversleft > 1)
 	{
 		for(node* cur = head; cur != NULL;)
 		{
