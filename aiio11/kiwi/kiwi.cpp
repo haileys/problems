@@ -21,18 +21,6 @@ long long analyzerepetition(int symbol)
 	return steps;
 }
 
-long long gcd(long long num, long long den)
-{
-	long long temp;
-	while(den > 0)
-	{
-		temp = den;
-		den = num % den;
-		num = temp;
-	}
-	return num;
-}
-
 long long lcm(long long a, long long b)
 {
 	if(b > a)
@@ -41,10 +29,9 @@ long long lcm(long long a, long long b)
 		a = b;
 		b = temp;
 	}
-	long long divisor = gcd(a, b);
 	long long n = a;
 	while(n % a != 0 || n % b != 0)
-		n += divisor;
+		n += a;
 	return n;
 }
 
@@ -62,7 +49,7 @@ int main()
 	for(int i = 1; i <= ncipher; i++)
 		fscanf(in, "%d", cipher + i);
 	
-	int reps = 1;
+	long long reps = 1;
 	bool* recipeseen = (bool*)calloc(ncipher + 1, sizeof(bool));
 	for(int i = 0; i < recipelength; i++)
 	{
