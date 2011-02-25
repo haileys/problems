@@ -21,9 +21,9 @@ long long analyzerepetition(int symbol)
 	return steps;
 }
 
-int gcd(int num, int den)
+long long gcd(long long num, long long den)
 {
-	int temp;
+	long long temp;
 	while(den > 0)
 	{
 		temp = den;
@@ -33,16 +33,16 @@ int gcd(int num, int den)
 	return num;
 }
 
-int lcm(int a, int b)
+long long lcm(long long a, long long b)
 {
 	if(b > a)
 	{
-		int temp = a;
+		long long temp = a;
 		a = b;
 		b = temp;
 	}
-	int divisor = gcd(a, b);
-	int n = a;
+	long long divisor = gcd(a, b);
+	long long n = a;
 	while(n % a != 0 || n % b != 0)
 		n += divisor;
 	return n;
