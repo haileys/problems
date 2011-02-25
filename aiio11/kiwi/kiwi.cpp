@@ -4,11 +4,11 @@
 
 int* cipher;
 
-long long analyzerepetition(int symbol)
+int analyzerepetition(int symbol)
 {
 	int* seen = (int*)calloc(201, sizeof(int));
 	int sym = symbol;
-	long long steps = 0;
+	int steps = 0;
 	do
 	{
 		steps++;
@@ -21,9 +21,9 @@ long long analyzerepetition(int symbol)
 	return steps;
 }
 
-long long gcd(long long num, long long den)
+int gcd(int num, int den)
 {
-	long long temp;
+	int temp;
 	while(den > 0)
 	{
 		temp = den;
@@ -33,16 +33,16 @@ long long gcd(long long num, long long den)
 	return num;
 }
 
-long long lcm(long long a, long long b)
+int lcm(int a, int b)
 {
 	if(b > a)
 	{
-		long long temp = a;
+		int temp = a;
 		a = b;
 		b = temp;
 	}
-	long long divisor = gcd(a, b);
-	long long n = a;
+	int divisor = gcd(a, b);
+	int n = a;
 	while(n % a != 0 || n % b != 0)
 		n += divisor;
 	return n;
@@ -62,7 +62,7 @@ int main()
 	for(int i = 1; i <= ncipher; i++)
 		fscanf(in, "%d", cipher + i);
 	
-	long long reps = 1;
+	int reps = 1;
 	bool* recipeseen = (bool*)calloc(ncipher + 1, sizeof(bool));
 	for(int i = 0; i < recipelength; i++)
 	{
@@ -71,7 +71,7 @@ int main()
 		if(!recipeseen[sym])
 		{
 			recipeseen[sym] = true;
-			long long repanalysis = analyzerepetition(sym);
+			int repanalysis = analyzerepetition(sym);
 			if(repanalysis == -1)
 			{
 				fprintf(out, "Never");
