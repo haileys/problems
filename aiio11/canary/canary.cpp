@@ -32,7 +32,16 @@ int find_number_of_paths(int x, int y)
 	return paths % 1000003;
 }
 
+int pmain();
 int main()
+{
+	char* newstack = (char*)malloc(16*1024*1024) + 16*1024*1024 - 64;
+	asm("movl %%eax, %%esp" : : "a" (newstack));
+	pmain();
+	exit(0);
+}
+
+int pmain()
 {
 	FILE* in = fopen("birdin.txt", "r");
 	FILE* out = fopen("birdout.txt", "w");
@@ -67,4 +76,6 @@ int main()
 	
 	fclose(out);
 	fclose(in);
+	
+	return 0;
 }
